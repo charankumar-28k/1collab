@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mahendra Engineering College</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #f5f9ff;
+            color: #172033;
+        }
+
+        /* NAVBAR */
+
+        nav {
+            width: 100%;
+            height: 75px;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 7%;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #1677ff, #00bfff);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .logo h2 {
+            color: #12376b;
+            font-size: 20px;
+        }
+
+        .logo span {
+            display: block;
+            font-size: 11px;
+            color: #667085;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #26364d;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #1677ff;
+        }
+
+        .nav-btn {
+            padding: 11px 20px;
+            border-radius: 25px;
+            background: #1677ff;
+            color: white !important;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 100vh;
+            padding: 150px 7% 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+            background:
+                radial-gradient(circle at 80% 30%, #cceaff 0%, transparent 30%),
+                linear-gradient(135deg, #eef8ff, #ffffff);
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 30px;
+            background: #e0f2ff;
+            color: #1677ff;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 58px;
+            line-height: 1.1;
+            color: #102a56;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            color: #1677ff;
+        }
+
+        .hero p {
+            font-size: 18px;
+            line-height: 1.7;
+            color: #667085;
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 14px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .primary {
+            background: #1677ff;
+            color: white;
+        }
+
+        .secondary {
+            border: 2px solid #1677ff;
+            color: #1677ff;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+        }
+
+        /* HERO CARD */
+
+        .hero-card {
+            width: 470px;
+            height: 420px;
+            border-radius: 30px;
+            background: linear-gradient(135deg, #1677ff, #00bfff);
+            padding: 35px;
+            color: white;
+            box-shadow: 0 25px 60px rgba(22,119,255,0.25);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-card::before {
+            content: "";
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.15);
+            position: absolute;
+            right: -80px;
+            top: -80px;
+        }
+
+        .hero-card h2 {
+            font-size: 34px;
+            margin-top: 30px;
+        }
+
+        .hero-card p {
+            color: white;
+            margin-top: 15px;
+        }
+
+        .card-box {
+            position: absolute;
+            bottom: 30px;
+            left: 30px;
+            right: 30px;
+            background: rgba(255,255,255,0.18);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 18px;
+        }
+
+        /* SECTION */
+
+        section {
+            padding: 90px 7%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 38px;
+            color: #102a56;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #667085;
+        }
+
+        /* STATS */
+
+        .stats {
+            background: #102a56;
+            color: white;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            text-align: center;
+            gap: 30px;
+        }
+
+        .stat h2 {
+            font-size: 42px;
+            color: #65d8ff;
+        }
+
+        .stat p {
+            margin-top: 8px;
+            color: #dbeafe;
+        }
+
+        /* DEPARTMENTS */
+
+        .departments {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .department {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+            transition: 0.3s;
+        }
+
+        .department:hover {
+            transform: translateY(-8px);
+        }
+
+        .department-icon {
+            width: 65px;
+            height: 65px;
+            margin: auto;
+            margin-bottom: 20px;
+            border-radius: 18px;
+            background: #e5f4ff;
+            color: #1677ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+        }
+
+        .department h3 {
+            margin-bottom: 10px;
+            color: #163b70;
+        }
+
+        .department p {
+            color: #667085;
+            line-height: 1.5;
+        }
+
+        /* EVENTS */
+
+        .events {
+            background: #eef7ff;
+        }
+
+        .event-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .event {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+        }
+
+        .event-image {
+            height: 180px;
+            background: linear-gradient(135deg, #1677ff, #6dd5ff);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 45px;
+        }
+
+        .event-content {
+            padding: 25px;
+        }
+
+        .event-date {
+            color: #1677ff;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .event h3 {
+            margin: 10px 0;
+            color: #163b70;
+        }
+
+        .event p {
+            color: #667085;
+            line-height: 1.5;
+        }
+
+        /* CAMPUS */
+
+        .campus {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .campus-image {
+            flex: 1;
+            height: 380px;
+            border-radius: 30px;
+            background: linear-gradient(135deg, #dff4ff, #8ddcff);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+        }
+
+        .campus-content {
+            flex: 1;
+        }
+
+        .campus-content h2 {
+            font-size: 40px;
+            color: #102a56;
+            margin-bottom: 20px;
+        }
+
+        .campus-content p {
+            color: #667085;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #0b1f3a;
+            color: white;
+            padding: 60px 7% 25px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+        }
+
+        footer h3 {
+            margin-bottom: 20px;
+        }
+
+        footer p,
+        footer a {
+            color: #b8c7dc;
+            line-height: 1.8;
+            text-decoration: none;
+        }
+
+        footer ul {
+            list-style: none;
+        }
+
+        footer li {
+            margin-bottom: 8px;
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid #29415f;
+            margin-top: 40px;
+            padding-top: 20px;
+            color: #9db0c9;
+        }
+
+        /* RESPONSIVE */
+
+        @media(max-width: 900px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .hero-card {
+                width: 100%;
+                max-width: 470px;
+            }
+
+            .departments {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .event-container {
+                grid-template-columns: 1fr;
+            }
+
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .campus {
+                flex-direction: column;
+            }
+
+            .campus-image {
+                width: 100%;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media(max-width: 600px) {
+
+            .departments {
+                grid-template-columns: 1fr;
+            }
+
+            .stats {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 60px 5%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav>
+
+    <div class="logo">
+        <div class="logo-icon">M</div>
+
+        <div>
+            <h2>Mahendra</h2>
+            <span>Engineering College</span>
+        </div>
+    </div>
+
+    <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#departments">Departments</a></li>
+        <li><a href="#events">Events</a></li>
+        <li><a href="#campus">Campus</a></li>
+        <li><a href="#contact" class="nav-btn">Contact</a></li>
+    </ul>
+
+</nav>
+
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <span class="tag">🎓 Excellence in Education</span>
+
+        <h1>
+            Building the
+            <span>Future</span>
+            Through Innovation
+        </h1>
+
+        <p>
+            Welcome to Mahendra Engineering College.
+            Explore a world of technology, innovation,
+            creativity and endless opportunities.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#departments" class="btn primary">
+                Explore Departments
+            </a>
+
+            <a href="#about" class="btn secondary">
+                Discover More
+            </a>
+        </div>
+
+    </div>
+
+
+    <div class="hero-card">
+
+        <div style="font-size:60px;">🎓</div>
+
+        <h2>Learn. Innovate. Lead.</h2>
+
+        <p>
+            Empowering students with knowledge,
+            skills and technology for tomorrow.
+        </p>
+
+        <div class="card-box">
+            <strong>Admissions Open</strong>
+            <br>
+            <span>Start your journey with us</span>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- STATS -->
+
+<section class="stats">
+
+    <div class="stat">
+        <h2>25+</h2>
+        <p>Years of Excellence</p>
+    </div>
+
+    <div class="stat">
+        <h2>50+</h2>
+        <p>Programs</p>
+    </div>
+
+    <div class="stat">
+        <h2>10K+</h2>
+        <p>Students</p>
+    </div>
+
+    <div class="stat">
+        <h2>500+</h2>
+        <p>Faculty Members</p>
+    </div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section id="about">
+
+    <div class="section-title">
+
+        <h2>About Our College</h2>
+
+        <p>
+            A place where education meets innovation.
+        </p>
+
+    </div>
+
+    <div class="campus">
+
+        <div class="campus-image">
+            🏫
+        </div>
+
+        <div class="campus-content">
+
+            <h2>Education Beyond Classrooms</h2>
+
+            <p>
+                Our institution provides students with a
+                dynamic learning environment supported by
+                modern infrastructure, experienced faculty
+                and innovative learning opportunities.
+            </p>
+
+            <p>
+                We focus on developing technical knowledge,
+                creativity, leadership and problem-solving
+                skills that prepare students for the future.
+            </p>
+
+            <a href="#contact" class="btn primary">
+                Know More
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- DEPARTMENTS -->
+
+<section id="departments">
+
+    <div class="section-title">
+
+        <h2>Our Departments</h2>
+
+        <p>
+            Explore our academic programs and disciplines.
+        </p>
+
+    </div>
+
+
+    <div class="departments">
+
+        <div class="department">
+
+            <div class="department-icon">
+                🤖
+            </div>
+
+            <h3>AI & Data Science</h3>
+
+            <p>
+                Artificial Intelligence, Machine Learning,
+                Data Science and emerging technologies.
+            </p>
+
+        </div>
+
+
+        <div class="department">
+
+            <div class="department-icon">
+                💻
+            </div>
+
+            <h3>Computer Science</h3>
+
+            <p>
+                Software development, computing,
+                cloud technologies and programming.
+            </p>
+
+        </div>
+
+
+        <div class="department">
+
+            <div class="department-icon">
+                ⚡
+            </div>
+
+            <h3>Electrical Engineering</h3>
+
+            <p>
+                Electrical systems, electronics,
+                automation and modern technologies.
+            </p>
+
+        </div>
+
+
+        <div class="department">
+
+            <div class="department-icon">
+                ⚙️
+            </div>
+
+            <h3>Mechanical Engineering</h3>
+
+            <p>
+                Manufacturing, design, robotics
+                and mechanical systems.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- EVENTS -->
+
+<section class="events" id="events">
+
+    <div class="section-title">
+
+        <h2>Latest Events</h2>
+
+        <p>
+            Discover what's happening on our campus.
+        </p>
+
+    </div>
+
+
+    <div class="event-container">
+
+        <div class="event">
+
+            <div class="event-image">
+                🚀
+            </div>
+
+            <div class="event-content">
+
+                <span class="event-date">
+                    10 AUG 2026
+                </span>
+
+                <h3>Technology Symposium</h3>
+
+                <p>
+                    Students showcase innovative ideas,
+                    projects and emerging technologies.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="event">
+
+            <div class="event-image">
+                🧠
+            </div>
+
+            <div class="event-content">
+
+                <span class="event-date">
+                    15 AUG 2026
+                </span>
+
+                <h3>AI & Innovation Expo</h3>
+
+                <p>
+                    An exciting event featuring AI,
+                    robotics and innovative projects.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="event">
+
+            <div class="event-image">
+                🏆
+            </div>
+
+            <div class="event-content">
+
+                <span class="event-date">
+                    25 AUG 2026
+                </span>
+
+                <h3>Student Achievements</h3>
+
+                <p>
+                    Celebrating the achievements and
+                    accomplishments of our students.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CAMPUS -->
+
+<section id="campus">
+
+    <div class="campus">
+
+        <div class="campus-content">
+
+            <h2>Experience Our Campus</h2>
+
+            <p>
+                Explore modern classrooms, laboratories,
+                libraries, innovation centers, sports
+                facilities and vibrant student spaces.
+            </p>
+
+            <a href="#contact" class="btn primary">
+                Explore Campus
+            </a>
+
+        </div>
+
+        <div class="campus-image">
+            🌳
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer id="contact">
+
+    <div class="footer-grid">
+
+        <div>
+
+            <h3>Mahendra Engineering College</h3>
+
+            <p>
+                Empowering students through education,
+                innovation and technology.
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h3>Quick Links</h3>
+
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#departments">Departments</a></li>
+                <li><a href="#events">Events</a></li>
+            </ul>
+
+        </div>
+
+
+        <div>
+
+            <h3>Departments</h3>
+
+            <ul>
+                <li><a href="#">AI & Data Science</a></li>
+                <li><a href="#">Computer Science</a></li>
+                <li><a href="#">Mechanical</a></li>
+                <li><a href="#">Electrical</a></li>
+            </ul>
+
+        </div>
+
+
+        <div>
+
+            <h3>Contact</h3>
+
+            <p>
+                📍 Mahendra Engineering College
+            </p>
+
+            <p>
+                📧 info@college.edu
+            </p>
+
+            <p>
+                📞 +91 XXXXX XXXXX
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+        © 2026 Mahendra Engineering College.
+        All Rights Reserved.
+
+    </div>
+
+</footer>
+
+</body>
+</html>
